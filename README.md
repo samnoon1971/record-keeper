@@ -1,2 +1,2 @@
 # record-keeper
-A task record keeper app built with Bun JS runtime
+A cats record keeper app built with Bun JS runtime
