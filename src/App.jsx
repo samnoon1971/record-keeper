@@ -1,10 +1,14 @@
 import './App.css'
+import List from './components/List';
+import { Container } from "@mui/material";
 
 function App() {
   
   return (
     <>
-      Welcome to record keeper app
+      <Container >
+      <List/>
+        </Container>
     </>
   )
 }
