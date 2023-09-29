@@ -1,2 +1,2 @@
 # record-keeper
-A cats record keeper app built with Bun JS runtime
+A record keeper app built with React and Redux
