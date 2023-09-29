@@ -8,15 +8,16 @@ import {
   TableRow,
 } from "@mui/material";
 import Add from "./Add";
-import { useState } from "react";
-import { cats } from "../data/cats";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addCat, updateCat, deleteCat } from "../catSlice";
 import { v4 as uuidv4 } from "uuid";
 import { TablePagination } from "@mui/material";
 
 function showCat({ cat }) {
-  console.log(cat);
   return (
-    <TableRow key={uuidv4()}>
+    <TableRow key={cat.id}>
+      <TableCell>{cat.id}</TableCell>
       <TableCell>{cat.name}</TableCell>
       <TableCell>{cat.address}</TableCell>
       <TableCell>{new Date(cat.birthdate).toLocaleString()}</TableCell>
@@ -24,11 +25,19 @@ function showCat({ cat }) {
   );
 }
 
+function initCats() {
+  const cats = useSelector((state) => state.cats.cats);
+  return cats;
+}
 const List = () => {
+  const dispatch = useDispatch();
+  const cats = initCats();
+
+  const status = useSelector((state) => state.cats.status);
+
   const [currentPage, setCurrentPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5); 
+  const [rowsPerPage, setRowsPerPage] = useState(5);
   const handleChangePage = (event, newPage) => {
-    console.log(newPage);
     setCurrentPage(newPage);
   };
   const handleRowsPerPageChange = (event) => {
@@ -47,6 +56,7 @@ const List = () => {
           <Table>
             <TableHead>
               <TableRow>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Address</th>
                 <th>Birthdate</th>
