@@ -1,6 +1,11 @@
 # record-keeper
 A record keeper app built with React and Redux
 
+## Install Dependencies
+
+```
+npm install
+```
 
 ## Test Project
 
