@@ -11,7 +11,6 @@ import Add from "./Add";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addCat, updateCat, deleteCat } from "../catSlice";
-import { v4 as uuidv4 } from "uuid";
 import { TablePagination } from "@mui/material";
 
 function showCat({ cat }) {
