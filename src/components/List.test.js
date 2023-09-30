@@ -3,13 +3,13 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import List from "./List";
 import { useSelector } from "react-redux";
 import "@testing-library/jest-dom";
-
 jest.mock("react-redux", () => ({
   useSelector: jest.fn(),
   useDispatch: jest.fn(),
 }));
 
 describe("List Component", () => {
+ 
   it("renders the component without errors", () => {
     // call initCats to populate the store
     render(<List />);
