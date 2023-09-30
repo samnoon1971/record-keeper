@@ -29,10 +29,7 @@ function initCats() {
   return cats;
 }
 const List = () => {
-  const dispatch = useDispatch();
   const cats = initCats();
-
-  const status = useSelector((state) => state.cats.status);
 
   const [currentPage, setCurrentPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -43,9 +40,11 @@ const List = () => {
     setRowsPerPage(event.target.value);
   };
   const catsRows = [];
-  cats.forEach((cat) => {
-    catsRows.push(showCat({ cat }));
-  });
+  if (Array.isArray(cats)) {
+    cats.forEach((cat) => {
+      catsRows.push(showCat({ cat }));
+    });
+  }
   return (
     <>
       <Container fixed>
