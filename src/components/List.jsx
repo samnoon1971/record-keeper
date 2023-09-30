@@ -40,14 +40,14 @@ function showCat({ cat, onEdit, handleOpenDeleteDialog }) {
 
       <TableCell>
         <IconButton
-          title="editButton"
+          title="Edit"
           onClick={() => onEdit(cat)}
           color="primary"
         >
           <EditIcon />
         </IconButton>
         <IconButton
-          title="deleteButton"
+          title="Delete"
           onClick={() => handleOpenDeleteDialog(cat.id)}
           color="secondary"
         >
